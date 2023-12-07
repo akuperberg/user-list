@@ -1,0 +1,6 @@
+{
+    "extends": [
+        "@betsys-eslint/angular",
+        "@betsys-eslint/angular-template"
+    ]
+}
