@@ -1,6 +1,16 @@
+<div class="user-list">
 <table>
-<tr *ngFor="let user of users">
-  <td>{{user.name}}</td>
-  <td>{{user.address.city}}</td>
-</tr>
+    <thead>
+      <tr>
+        <th>Name and surname</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of users">
+      <tr>
+        <td class="name">{{ user.name }}</td>
+        <td>{{ user.address.city }}</td>
+      </tr>
+    </tbody>
 </table>
+</div>
