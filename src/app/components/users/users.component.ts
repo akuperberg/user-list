@@ -1,7 +1,10 @@
+import { loadUsers } from './../../store/users.actions';
 import { Component } from '@angular/core';
 import { UsersService } from '../../services/user.service';
 import { IUser } from '../../interfaces/IUser';
 import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { selectUsers } from '../../store/users.selectors';
 
 @Component({
   selector: 'app-users',
@@ -9,13 +12,15 @@ import { Observable } from 'rxjs';
   styleUrl: './users.component.scss'
 })
 export class UsersComponent {
-  users: IUser[] = [];
   users$!: Observable<IUser[]>;
-  constructor(private userService: UsersService) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe((users) => {
-      this.users = users;
-    });
+    this.fetchUsers();
+  }
+
+  fetchUsers(): void {
+    this.store.dispatch(loadUsers());
+    this.users$ = this.store.pipe(select(selectUsers));
   }
 }
