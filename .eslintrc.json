@@ -1,16 +1,17 @@
 {
-  "extends": [
-    "@betsys-eslint/angular",
-    "@betsys-eslint/angular-template"
-  ],
-  "overrides": [
-    {
-      "files": [
-        "*.ts"
-      ],
-      "extends": [
-        "plugin:@ngrx/recommended-requiring-type-checking"
-      ]
-    }
-  ]
+    "extends": [
+        "@betsys-eslint/angular",
+        "@betsys-eslint/angular-template"
+    ],
+    "overrides": [
+        {
+            "files": [
+                "*.ts"
+            ],
+            "extends": [
+                "plugin:@ngrx/recommended-requiring-type-checking",
+                "@betsys-eslint/typescript"
+            ]
+        }
+    ]
 }
